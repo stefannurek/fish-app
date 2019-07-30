@@ -16,6 +16,8 @@ import java.time.format.DateTimeFormatter;
 public class TripForm {
 
     @Getter
+    private Long id;
+    @Getter
     @Setter
     @NotNull
     @Size(min = 1, max = 20, message = "{Size.TripForm.city}")
@@ -33,24 +35,22 @@ public class TripForm {
     @Getter
     @Setter
     @NotNull
-    @Range(min = 0, max = 24)
-    @Size(min = 1, max = 2, message = "{Size.TripForm.timeForm}")
-    private int timeFrom;
+    @Range(min = 0, max = 24, message = "{Range.TripForm.timeFrom}")
+    private Integer timeFrom;
     @Getter
     @Setter
     @NotNull
-    @Range(min = 0, max = 24)
-    @Size(min = 1, max = 2, message = "{Size.TripForm.timeTo}")
-    private int timeTo;
+    @Range(min = 0, max = 24, message = "{Range.TripForm.timeTo}")
+    private Integer timeTo;
     @Getter
     @Setter
     @NotNull
-    @Size(min = 1, max = 600, message = "{Size.TripForm.notice}")
-    private String notice;
+    @Size(min = 1, max = 600, message = "{Size.TripForm.note}")
+    private String note;
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public LocalDate getFormateDate() {
+    public LocalDate getFormatedDate() {
         return LocalDate.parse(date, formatter);
     }
 }

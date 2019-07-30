@@ -21,16 +21,16 @@ public class TripModel {
     private String city;
     private String fishery;
     private LocalDate date;
-    private int timeFrom;
-    private int timeTo;
-    private String notice;
+    private Integer timeFrom;
+    private Integer timeTo;
+    private String note;
 
     public TripModel(TripForm form) {
         city = form.getCity();
         fishery = form.getFishery();
-        date = form.getFormateDate();
+        date = form.getFormatedDate();
         timeFrom = form.getTimeFrom();
         timeTo = form.getTimeTo();
-        notice = form.getNotice();
+        note = form.getNote();
     }
 }

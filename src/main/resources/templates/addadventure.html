@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Add adventure</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <style>
+
+        .row.content {height: 1000px;}
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        .form-group{
+            padding-top: 10px;
+        }
+
+        .insideContainer {
+            padding: 20px;
+        }
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height: auto;}
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <div class="text-right">
+                <a href="C:\Users\t460si7\Desktop\zaliczenieAkademiaKoduZaliczenie\index4.html"><button type="button" class="btn outline-success">szukaj wypraw</button></a>
+                <a href="C:\Users\t460si7\Desktop\zaliczenieAkademiaKoduZaliczenie\login.html"><button type="button" class="btn outline-success">wyloguj</button></a>
+            </div>
+            <h3>Dodaj wyprawę:</h3></br>
+            <div class="input-group">
+                <form th:action="@{/}" method="post" th:object="${tripForm}">
+                    <div class="form-group">
+
+                        <label for="field1">Miejscowość</label>
+                        <input type="text" th:field="*{city}"class="form-control"  id="field1" placeholder="wpisz miejscowość">
+                        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="field2">Nazwa łowiska</label>
+                        <input type="text" th:field="*{fishery}" class="form-control" id="field2" placeholder="wpisz nazwę łowiska">
+                        <p th:if="${#fields.hasErrors('fishery')}" th:errors="*{fishery}"></p>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="field3">Data wyprawy</label>
+                        <input type="text" th:field="*{date}" class="form-control" id="field3" placeholder="data w formacie  rrrr-mm-dd">
+                        <p th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="field4">Godzina od</label>
+                            <input type="number" th:field="*{timeFrom}" class="form-control" id="field4" placeholder="godz od">
+                            <p th:if="${#fields.hasErrors('timeFrom')}" th:errors="*{timeFrom}"></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="field5">Godzina do</label>
+                            <input type="number" th:field="*{timeTo}" class="form-control" id="field5" placeholder="godz do">
+                           <p th:if="${#fields.hasErrors('timeTo')}" th:errors="*{timeTo}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field6">Opis wyprawy  </label>
+                        <textarea th:field="*{note}" class="form-control" id="field6" rows="5" placeholder="dodaj opis ...."></textarea>
+                        <p th:if="${#fields.hasErrors('note')}" th:errors="*{note}"></p>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-success">Zapisz</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <h4>   <div class="alert alert-success" th:text="${info}"> </div></h4>
+            <hr>
+            <div class="insideContainer">
+
+                <div class="container">
+                    <h2>Basic Table</h2>
+                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1"> Miasto</th>
+                            <th class="col-md-1">Łowisko</th>
+                            <th class="col-md-1">Data</th>
+                            <th class="col-md-1">Start</th>
+                            <th class="col-md-1">Koniec</th>
+                            <th class="col-md-2">Opis</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="addadventure : ${showAddedRecord}">
+                        <tr>
+                            <td th:text="${addadventure.city}"></td>
+                            <td th:text="${addadventure.fishery}"></td>
+                            <td th:text="${addadventure.date}"></td>
+                            <td th:text="${addadventure.timeFrom}"></td>
+                            <td th:text="${addadventure.timeTo}"></td>
+                            <td th:text="${addadventure.note}"></td>
+                        </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
