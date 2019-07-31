@@ -1,0 +1,78 @@
+<html lang="pl">
+<head>
+    <title>Sign In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <style>
+
+        .loginForm{
+            padding: 7px;
+            margin-left: 230px;
+        }
+
+        .imageFish{
+            padding-top: 10px;
+            padding-left: 370px;
+        }
+
+        input[type=text]{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 20%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        h1{
+            margin-left: 120px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="imageFish">
+        <h1>Na Ryby </h1></br>
+        <img src="C:\Users\t460si7\IdeaProjects\fish-app\src\main\resources\static\fishImage.JPG">
+    </div>
+    <div class="loginForm">
+        <div>
+            <form action="choose.html" method="post">
+                <label for="fname">Login</label>
+                <input type="text" id="fname" name="firstname" placeholder="login">
+
+                <label for="lname">Hasło</label>
+                <input type="text" id="lname" name="lastname" placeholder="hasło">
+                <input type="submit" value="Zaloguj">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>

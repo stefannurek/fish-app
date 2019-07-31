@@ -1,0 +1,109 @@
+<html lang="pl" xmlns:th="http:/thymeleaf.org">
+<head>
+    <title>Show adventures</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <style>
+
+        .row.content {
+            height: 1000px
+        }
+
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        .insideContainer {
+            padding: 70px;
+        }
+
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <div class="text-right">
+                <a href="addadventure.html">
+                    <button type="button" class="btn outline-success">dodaj wyprawe</button>
+                </a>
+                <a href="login.html">
+                    <button type="button" class="btn outline-success">wyloguj</button>
+                </a>
+            </div>
+            <h3>Szukaj wypraw:</h3></br>
+            <div class="input-group">
+                <form>
+                    <div class="form-group">
+                        <label for="field1">Miejscowosc</label>
+                        <input type="text" class="form-control" id="field1" placeholder="wpisz miejscowosc">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="field2">Nazwa lowiska</label>
+                        <input type="text" class="form-control" id="field2" placeholder="wpisz nazwe lowiska">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="field3">Data wyprawy</label>
+                        <input type="text" class="form-control" id="field3"
+                               placeholder="wpisz date wyprawy - format mm/dd/rrrr">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-success">Szukaj</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <h4>
+                <div class="alert alert-success"><strong>Jakis komunikat!!! </strong> kiedy zwroci wyprawy</div>
+            </h4>
+            <hr>
+            <div class="insideContainer">
+
+                <div class="container">
+                    <h2>Basic Table</h2>
+                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1"> Miasto</th>
+                            <th class="col-md-1">Łowisko</th>
+                            <th class="col-md-1">Data</th>
+                            <th class="col-md-1">Start</th>
+                            <th class="col-md-1">Koniec</th>
+                            <th class="col-md-2">Opis</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="addadventure : ${showAddedRecord}">
+                            <tr>
+                                <td th:text="${addadventure.city}"></td>
+                                <td th:text="${addadventure.fishery}"></td>
+                                <td th:text="${addadventure.date}"></td>
+                                <td th:text="${addadventure.timeFrom}"></td>
+                                <td th:text="${addadventure.timeTo}"></td>
+                                <td th:text="${addadventure.note}"></td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
